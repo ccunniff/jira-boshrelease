@@ -1,0 +1,10 @@
+# idea
+.idea/
+
+# bosh
+.dev_builds/
+dev_releases/
+blobs/
+
+# OS X
+**/.DS_Store

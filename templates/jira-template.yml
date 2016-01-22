@@ -1,0 +1,28 @@
+---
+name: jira
+director_uuid: (( merge ))
+
+resource_pools: (( merge ))
+networks: (( merge ))
+jobs: (( merge ))
+
+releases:
+- name: jira
+  version: latest
+
+update:
+  canaries: 0
+  canary_watch_time: 30000-240000
+  update_watch_time: 30000-600000
+  max_in_flight: 1
+
+compilation:
+  workers: 1
+  network: (( properties.jira.network ))
+  reuse_compilation_vms: true
+  cloud_properties: (( resource_pools.[0].cloud_properties ))
+
+properties:
+  jira:
+    network: (( merge ))
+  server: (( merge ))

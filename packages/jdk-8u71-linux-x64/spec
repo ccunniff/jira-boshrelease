@@ -1,0 +1,7 @@
+---
+name: jdk-8u71-linux-x64
+
+dependencies: []
+
+files:
+- jdk-8u71-linux-x64/jdk-8u71-linux-x64.gz

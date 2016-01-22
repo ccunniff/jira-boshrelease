@@ -1,0 +1,8 @@
+---
+name: atlassian-jira-6.4.12
+
+dependencies:
+- jdk-8u71-linux-x64
+
+files:
+- atlassian-jira-6.4.12/atlassian-jira-6.4.12.tar.gz

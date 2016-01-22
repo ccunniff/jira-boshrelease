@@ -1,0 +1,44 @@
+#!/bin/bash
+
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+RUN_DIR=/var/vcap/sys/run/jira-server
+LOG_DIR=/var/vcap/sys/log/jira-server
+PIDFILE=${RUN_DIR}/pid
+
+cd /var/vcap/packages/atlassian-jira-6.4.12
+
+export PATH=/var/vcap/packages/jdk-8u71-linux-x64/jdk1.8.0_71/bin:$PATH
+export JAVA_HOME=/var/vcap/packages/jdk-8u71-linux-x64/jdk1.8.0_71
+export JIRA_HOME=/var/vcap/store/atlassian-jira
+
+case $1 in
+
+  start)
+    mkdir -p $RUN_DIR $LOG_DIR
+    chown -R vcap:vcap $RUN_DIR $LOG_DIR
+
+    echo $$ > $PIDFILE
+    chown vcap:vcap $PIDFILE
+
+    mkdir -p /var/vcap/store/atlassian-jira
+
+    atlassian-jira-6.4.12-standalone/bin/start-jira.sh
+
+    ;;
+
+  stop)
+
+    atlassian-jira-6.4.12-standalone/bin/stop-jira.sh
+
+    sleep 60s
+
+    rm -f $PIDFILE
+
+    ;;
+
+  *)
+    echo "Usage: ctl {start|stop}" ;;
+
+esac

@@ -1,0 +1,9 @@
+---
+name: atlassian-jira
+templates:
+  ctl.erb: bin/ctl
+  jira-application.properties: config/jira-application.properties
+
+packages:
+- atlassian-jira-6.4.12
+- jdk-8u71-linux-x64

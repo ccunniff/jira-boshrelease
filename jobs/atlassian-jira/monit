@@ -1,0 +1,5 @@
+check process atlassian-jira
+  with pidfile /var/vcap/sys/run/atlassian-jira/pid
+  start program "/var/vcap/jobs/atlassian-jira/bin/ctl start" with timeout 180 seconds
+  stop program "/var/vcap/jobs/atlassian-jira/bin/ctl stop"
+  group vcap
