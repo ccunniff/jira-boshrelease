@@ -22,6 +22,8 @@ case $1 in
     echo $$ > $PIDFILE
     chown vcap:vcap $PIDFILE
 
+    cp /var/vcap/jobs/atlassian-jira/config/jira-application.properties /var/vcap/packages/atlassian-jira-6.4.12/atlassian-jira-6.4.12-standalone/atlassian-jira/WEB-INF/classes/jira-application.properties
+
     mkdir -p /var/vcap/store/atlassian-jira
 
     exec atlassian-jira-6.4.12-standalone/bin/start-jira.sh -fg
