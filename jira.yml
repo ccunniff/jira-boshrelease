@@ -1,0 +1,49 @@
+compilation:
+  cloud_properties:
+    name: random
+  network: default
+  reuse_compilation_vms: true
+  workers: 1
+director_uuid: 3e42d17f-072b-4577-8446-d1e15bb59f49
+jobs:
+- instances: 1
+  name: atlassian-jira
+  networks:
+  - name: default
+    static_ips:
+    - 10.244.2.2
+  persistent_disk: 10240
+  resource_pool: default
+  template: atlassian-jira
+name: jira
+networks:
+- name: default
+  subnets:
+  - cloud_properties:
+      name: random
+    range: 10.244.2.0/30
+    reserved:
+    - 10.244.2.1
+    static:
+    - 10.244.2.2
+properties:
+  jira:
+    network: default
+  server:
+    ip: 10.244.2.2
+releases:
+- name: jira
+  version: latest
+resource_pools:
+- cloud_properties:
+    name: random
+  name: default
+  network: default
+  stemcell:
+    name: bosh-warden-boshlite-ubuntu-trusty-go_agent
+    version: latest
+update:
+  canaries: 0
+  canary_watch_time: 30000-240000
+  max_in_flight: 1
+  update_watch_time: 30000-600000

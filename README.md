@@ -53,27 +53,11 @@ Upload the release:
 bosh upload release
 ```
 
-* Generate a deployment manifest
-
-```
-bosh-lite/make_manifest
-```
-
 * Deploy
-
-Target the generated deployment manifest
-
-```
-bosh deployment bosh-lite/manifests/jira-manifest.yml
-```
-
-Deploy
 
 ```
 bosh deploy
 ```
-
-Cross your fingers.
 
 Jira server is available at http://10.244.2.2:8080
 
