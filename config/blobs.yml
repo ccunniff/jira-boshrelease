@@ -1,9 +1,1 @@
----
-atlassian-jira-6.4.12/atlassian-jira-6.4.12.tar.gz:
-  object_id: 461af24c-f716-4bc6-a6cd-9f9d0021e2f1
-  sha: 8854ebf629fae89ffc78745ca56642704a961c3f
-  size: 238357315
-jdk-8u71-linux-x64/jdk-8u71-linux-x64.gz:
-  object_id: 9b800496-9147-4121-9877-70dda570a32b
-  sha: 25e00bc1c0924e1be54d5db19e0ee951a3692f8a
-  size: 181299489
+--- {}
